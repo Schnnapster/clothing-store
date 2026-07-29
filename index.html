@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATELIER — сучасний одяг та аксесуари</title>
+<meta name="description" content="Інтернет-магазин сучасного одягу та аксесуарів. Безкоштовна доставка, повернення протягом 14 днів, оплата при отриманні.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="#" class="logo">ATELIER<span>.</span></a>
+
+    <nav class="nav" id="nav">
+      <a href="#catalog" class="nav__link">Каталог</a>
+      <a href="#about" class="nav__link">Про магазин</a>
+      <a href="#benefits" class="nav__link">Переваги</a>
+      <a href="#reviews" class="nav__link">Відгуки</a>
+      <a href="#contacts" class="nav__link">Контакти</a>
+    </nav>
+
+    <div class="header__actions">
+      <!-- Пошук по назві товару -->
+      <div class="search">
+        <svg class="search__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+        <input type="search" id="searchInput" class="search__input" placeholder="Пошук товарів..." aria-label="Пошук товарів">
+      </div>
+
+      <button class="icon-btn cart-btn" id="cartOpenBtn" aria-label="Відкрити кошик">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1.2 12H7.2L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+
+      <button class="icon-btn burger" id="burgerBtn" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <span class="hero__badge">Нова колекція — Осінь 2026</span>
+      <h1 class="hero__title">Одяг, у якому<br>хочеться жити</h1>
+      <p class="hero__text">
+        Лаконічні силуети, натуральні тканини та аксесуари, що завершують образ.
+        Знижка <strong>−20%</strong> на всю нову колекцію за промокодом <strong>ATELIER20</strong>.
+      </p>
+      <div class="hero__actions">
+        <a href="#catalog" class="btn btn--primary btn--lg">Дивитися каталог</a>
+        <a href="#about" class="btn btn--ghost btn--lg">Про магазин</a>
+      </div>
+      <div class="hero__stats">
+        <div><b>1200+</b><span>задоволених клієнтів</span></div>
+        <div><b>14 днів</b><span>на повернення</span></div>
+        <div><b>1–3 дні</b><span>доставка по Україні</span></div>
+      </div>
+    </div>
+    <div class="hero__media" aria-hidden="true">
+      <div class="hero__ph hero__ph--1"><span>ФОТО<br>КОЛЕКЦІЇ</span></div>
+      <div class="hero__ph hero__ph--2"><span>ФОТО</span></div>
+      <div class="hero__sale">−20%</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CATALOG ================= -->
+<section class="section catalog" id="catalog">
+  <div class="container">
+    <div class="section__head">
+      <div>
+        <span class="section__eyebrow">Каталог</span>
+        <h2 class="section__title">Обирайте своє</h2>
+      </div>
+      <p class="section__lead">Фільтруйте за категорією, розміром, кольором та ціною — усе оновлюється миттєво.</p>
+    </div>
+
+    <button class="btn btn--ghost filters-toggle" id="filtersToggle">Фільтри та сортування</button>
+
+    <div class="catalog__layout">
+      <!-- ---------- ФІЛЬТРИ ---------- -->
+      <aside class="filters" id="filters">
+        <div class="filters__head">
+          <h3>Фільтри</h3>
+          <button class="filters__reset" id="resetFilters">Скинути</button>
+        </div>
+
+        <div class="filter-group">
+          <h4 class="filter-group__title">Категорія</h4>
+          <div class="filter-list" id="categoryFilters">
+            <label class="check"><input type="checkbox" value="tshirts"><span>Футболки</span></label>
+            <label class="check"><input type="checkbox" value="sweaters"><span>Светри</span></label>
+            <label class="check"><input type="checkbox" value="pants"><span>Штани</span></label>
+            <label class="check"><input type="checkbox" value="accessories"><span>Аксесуари</span></label>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <h4 class="filter-group__title">Розмір</h4>
+          <div class="sizes" id="sizeFilters">
+            <label class="size-chip"><input type="checkbox" value="S"><span>S</span></label>
+            <label class="size-chip"><input type="checkbox" value="M"><span>M</span></label>
+            <label class="size-chip"><input type="checkbox" value="L"><span>L</span></label>
+            <label class="size-chip"><input type="checkbox" value="XL"><span>XL</span></label>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <h4 class="filter-group__title">Ціна, ₴</h4>
+          <div class="price-inputs">
+            <input type="number" id="priceMin" min="0" placeholder="від">
+            <span class="price-inputs__dash">—</span>
+            <input type="number" id="priceMax" min="0" placeholder="до">
+          </div>
+          <input type="range" id="priceRange" class="range" min="0" max="5000" step="50">
+          <p class="price-hint">До <b id="priceRangeLabel">5000</b> ₴</p>
+        </div>
+
+        <div class="filter-group">
+          <h4 class="filter-group__title">Колір</h4>
+          <div class="colors" id="colorFilters"></div>
+        </div>
+      </aside>
+
+      <!-- ---------- ТОВАРИ ---------- -->
+      <div class="catalog__main">
+        <div class="catalog__bar">
+          <p class="catalog__count" id="resultCount">Знайдено: 0</p>
+          <label class="sort">
+            <span>Сортувати:</span>
+            <select id="sortSelect">
+              <option value="popular">За популярністю</option>
+              <option value="new">За новизною</option>
+              <option value="price-asc">Ціна: від дешевих</option>
+              <option value="price-desc">Ціна: від дорогих</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="chips" id="activeChips"></div>
+
+        <div class="products" id="productsGrid"></div>
+
+        <p class="empty" id="emptyState" hidden>
+          Нічого не знайдено. Спробуйте змінити фільтри.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="section about" id="about">
+  <div class="container about__inner">
+    <div class="about__media" aria-hidden="true">
+      <div class="ph ph--tall"><span>ФОТО МАГАЗИНУ</span></div>
+    </div>
+    <div class="about__content">
+      <span class="section__eyebrow">Про магазин</span>
+      <h2 class="section__title">Ми робимо базу, яку носять роками</h2>
+      <p>
+        ATELIER — український магазин одягу та аксесуарів. Ми почали 2019 року з однієї
+        майстерні у Львові, а сьогодні відправляємо замовлення в усі міста України.
+      </p>
+      <p>
+        Ми не гонимося за кількістю моделей. Кожна річ проходить приміряння на різних
+        типах фігури, а тканини ми обираємо так, щоб вони не втрачали форму після
+        двадцятого прання.
+      </p>
+      <ul class="about__list">
+        <li>Власне виробництво та контроль якості на кожному етапі</li>
+        <li>Натуральні тканини: бавовна, льон, меринос</li>
+        <li>Чесні ціни без націнки посередників</li>
+      </ul>
+      <a href="#catalog" class="btn btn--primary">Перейти до каталогу</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BENEFITS ================= -->
+<section class="section benefits" id="benefits">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="section__eyebrow">Переваги</span>
+      <h2 class="section__title">Чому в нас зручно купувати</h2>
+    </div>
+    <div class="benefits__grid">
+      <article class="benefit">
+        <div class="benefit__icon">🚚</div>
+        <h3>Безкоштовна доставка від 1500 ₴</h3>
+        <p>Відправляємо Новою поштою та Укрпоштою. Замовлення від 1500 ₴ — доставка за наш рахунок.</p>
+      </article>
+      <article class="benefit">
+        <div class="benefit__icon">↩️</div>
+        <h3>Повернення протягом 14 днів</h3>
+        <p>Не підійшов розмір або колір? Повернемо кошти або обміняємо без зайвих питань.</p>
+      </article>
+      <article class="benefit">
+        <div class="benefit__icon">💳</div>
+        <h3>Оплата при отриманні</h3>
+        <p>Платіть після примірки у відділенні або онлайн карткою — як вам комфортніше.</p>
+      </article>
+      <article class="benefit">
+        <div class="benefit__icon">📏</div>
+        <h3>Допомога з розміром</h3>
+        <p>Напишіть свої параметри — консультант підбере розмір і покаже реальні заміри речі.</p>
+      </article>
+      <article class="benefit">
+        <div class="benefit__icon">🧵</div>
+        <h3>Якісні матеріали</h3>
+        <p>Тільки перевірені тканини з сертифікатами. Жодного «одноразового» одягу.</p>
+      </article>
+      <article class="benefit">
+        <div class="benefit__icon">⚡</div>
+        <h3>Відправка того ж дня</h3>
+        <p>Замовлення, оформлені до 15:00, вирушають до вас уже сьогодні.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REVIEWS ================= -->
+<section class="section reviews" id="reviews">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="section__eyebrow">Відгуки</span>
+      <h2 class="section__title">Що кажуть покупці</h2>
+    </div>
+    <div class="reviews__grid">
+      <article class="review">
+        <div class="review__stars">★★★★★</div>
+        <p class="review__text">Замовила светр з мериносу — за якістю значно вище очікувань. Не колеться, тримає форму. Доставка два дні.</p>
+        <div class="review__author"><div class="avatar">О</div><div><b>Олена К.</b><span>Київ</span></div></div>
+      </article>
+      <article class="review">
+        <div class="review__stars">★★★★★</div>
+        <p class="review__text">Брав штани та футболки. Розмірна сітка точна, консультант допоміг обрати. Оплатив при отриманні — все чесно.</p>
+        <div class="review__author"><div class="avatar">А</div><div><b>Андрій М.</b><span>Львів</span></div></div>
+      </article>
+      <article class="review">
+        <div class="review__stars">★★★★☆</div>
+        <p class="review__text">Гарна базова колекція. Один раз не підійшов розмір — обміняли за три дні без питань. Повернуся ще.</p>
+        <div class="review__author"><div class="avatar">І</div><div><b>Ірина П.</b><span>Одеса</span></div></div>
+      </article>
+      <article class="review">
+        <div class="review__stars">★★★★★</div>
+        <p class="review__text">Аксесуари — окрема любов. Шкіряний ремінь ношу щодня півроку, виглядає як новий.</p>
+        <div class="review__author"><div class="avatar">Д</div><div><b>Дмитро В.</b><span>Харків</span></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer" id="contacts">
+  <div class="container footer__grid">
+    <div class="footer__col">
+      <a href="#" class="logo logo--light">ATELIER<span>.</span></a>
+      <p class="footer__about">Сучасний одяг та аксесуари українського виробництва. Базові речі, які легко поєднувати.</p>
+      <div class="socials">
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="Telegram">Telegram</a>
+      </div>
+    </div>
+
+    <div class="footer__col">
+      <h4>Контакти</h4>
+      <ul class="footer__list">
+        <li><a href="tel:+380671234567">+38 (067) 123-45-67</a></li>
+        <li><a href="mailto:shop@atelier.ua">shop@atelier.ua</a></li>
+        <li>м. Львів, вул. Дорошенка, 12</li>
+        <li>Пн–Сб: 10:00 — 19:00</li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4>Доставка</h4>
+      <ul class="footer__list">
+        <li>Нова пошта — 1–3 дні</li>
+        <li>Укрпошта — 2–5 днів</li>
+        <li>Курʼєр по Львову — того ж дня</li>
+        <li>Самовивіз з магазину — безкоштовно</li>
+        <li>Безкоштовно від 1500 ₴</li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4>Оплата та повернення</h4>
+      <ul class="footer__list">
+        <li>Картою онлайн (Visa / Mastercard)</li>
+        <li>Оплата при отриманні</li>
+        <li>Безготівковий розрахунок</li>
+        <li>Повернення протягом 14 днів</li>
+        <li>Обмін розміру — безкоштовно</li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <p>© 2026 ATELIER. Усі права захищено.</p>
+    <p>Демонстраційний проєкт. Оплата не проводиться.</p>
+  </div>
+</footer>
+
+<!-- ================= КОШИК (drawer) ================= -->
+<div class="overlay" id="overlay"></div>
+
+<aside class="cart" id="cartDrawer" aria-label="Кошик">
+  <div class="cart__head">
+    <h3>Кошик <span id="cartHeadCount">(0)</span></h3>
+    <button class="close-btn" id="cartCloseBtn" aria-label="Закрити кошик">×</button>
+  </div>
+
+  <div class="cart__body" id="cartItems"></div>
+
+  <p class="cart__empty" id="cartEmpty">
+    Кошик поки порожній.<br><span>Додайте щось із каталогу 🙂</span>
+  </p>
+
+  <div class="cart__foot" id="cartFoot">
+    <div class="cart__row"><span>Товарів</span><b id="cartQtyTotal">0</b></div>
+    <div class="cart__row"><span>Доставка</span><b id="cartShipping">—</b></div>
+    <div class="cart__row cart__row--total"><span>До сплати</span><b id="cartTotal">0 ₴</b></div>
+    <button class="btn btn--primary btn--full" id="checkoutBtn">Оформити замовлення</button>
+    <button class="btn btn--text btn--full" id="clearCartBtn">Очистити кошик</button>
+  </div>
+</aside>
+
+<!-- ================= QUICK VIEW ================= -->
+<div class="modal" id="quickModal" role="dialog" aria-modal="true" aria-label="Швидкий перегляд товару">
+  <div class="modal__box modal__box--wide">
+    <button class="close-btn modal__close" id="quickClose" aria-label="Закрити">×</button>
+    <div class="quick" id="quickContent"></div>
+  </div>
+</div>
+
+<!-- ================= CHECKOUT ================= -->
+<div class="modal" id="checkoutModal" role="dialog" aria-modal="true" aria-label="Оформлення замовлення">
+  <div class="modal__box">
+    <button class="close-btn modal__close" id="checkoutClose" aria-label="Закрити">×</button>
+
+    <div id="checkoutFormWrap">
+      <h3 class="modal__title">Оформлення замовлення</h3>
+      <p class="modal__sub">Заповніть дані — ми зателефонуємо для підтвердження.</p>
+
+      <form id="checkoutForm" novalidate>
+        <div class="field">
+          <label for="coName">Ім'я та прізвище *</label>
+          <input type="text" id="coName" name="name" placeholder="Олена Ковальчук" required>
+          <small class="err" data-err="name"></small>
+        </div>
+
+        <div class="field">
+          <label for="coPhone">Телефон *</label>
+          <input type="tel" id="coPhone" name="phone" placeholder="+38 (0__) ___-__-__" required>
+          <small class="err" data-err="phone"></small>
+        </div>
+
+        <div class="field">
+          <span class="field__label">Спосіб отримання *</span>
+          <div class="radios">
+            <label class="radio"><input type="radio" name="delivery" value="delivery" checked><span>Доставка</span></label>
+            <label class="radio"><input type="radio" name="delivery" value="pickup"><span>Самовивіз</span></label>
+          </div>
+        </div>
+
+        <div class="field" id="addressField">
+          <label for="coAddress">Адреса доставки *</label>
+          <input type="text" id="coAddress" name="address" placeholder="Місто, відділення Нової пошти №">
+          <small class="err" data-err="address"></small>
+        </div>
+
+        <div class="field" id="pickupNote" hidden>
+          <p class="note">Самовивіз: м. Львів, вул. Дорошенка, 12. Пн–Сб 10:00–19:00.</p>
+        </div>
+
+        <div class="field">
+          <span class="field__label">Спосіб оплати *</span>
+          <div class="radios">
+            <label class="radio"><input type="radio" name="payment" value="cod" checked><span>При отриманні</span></label>
+            <label class="radio"><input type="radio" name="payment" value="card"><span>Карткою онлайн</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="coComment">Коментар до замовлення</label>
+          <textarea id="coComment" name="comment" rows="3" placeholder="Побажання щодо доставки, зручний час для звʼязку..."></textarea>
+        </div>
+
+        <div class="summary" id="checkoutSummary"></div>
+
+        <button type="submit" class="btn btn--primary btn--full btn--lg">Підтвердити замовлення</button>
+      </form>
+    </div>
+
+    <div id="checkoutSuccess" hidden class="success">
+      <div class="success__icon">✓</div>
+      <h3>Замовлення прийнято!</h3>
+      <p class="success__order">Номер замовлення: <b id="orderNumber">—</b></p>
+      <p class="success__sum">Сума: <b id="orderTotal">—</b></p>
+      <p class="success__text" id="orderInfo"></p>
+      <button class="btn btn--primary btn--full" id="successClose">Продовжити покупки</button>
+    </div>
+  </div>
+</div>
+
+<!-- Тост-повідомлення -->
+<div class="toast" id="toast"></div>
+
+<script src="products.js"></script>
+<script src="cart.js"></script>
+<script src="catalog.js"></script>
+<script src="checkout.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
