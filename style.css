@@ -216,7 +216,15 @@ ul { margin: 0; padding: 0; list-style: none; }
 .hero__stats b { display: block; font-size: 1.35rem; }
 .hero__stats span { font-size: .82rem; color: var(--ink-soft); }
 
-.hero__media { position: relative; display: grid; grid-template-columns: 1.4fr 1fr; gap: 16px; }
+/* align-items: start — інакше grid розтягує <img> на висоту рядка
+   і пропорції 3/4 ігноруються */
+.hero__media {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  align-items: start;
+  gap: 16px;
+}
 .hero__ph {
   background: var(--ph);
   border-radius: var(--radius);
@@ -224,7 +232,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   object-fit: cover;
 }
 .hero__ph--1 { aspect-ratio: 3/4; height: auto; }
-.hero__ph--2 { aspect-ratio: 3/4; align-self: end; height: 72%; }
+/* друге фото зсунуте вниз — «сходинка», що оживляє композицію */
+.hero__ph--2 { aspect-ratio: 3/4; height: auto; margin-top: 22%; }
 .hero__sale {
   position: absolute;
   left: -18px; bottom: 42px;
