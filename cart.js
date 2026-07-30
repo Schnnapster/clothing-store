@@ -175,7 +175,8 @@ function renderCart() {
     const color = COLORS[item.color];
     return `
       <div class="ci">
-        <div class="ci__ph">ФОТО</div>
+        <img class="ci__ph" src="${product.images[0]}" alt="${product.name}"
+             loading="lazy" width="600" height="800">
         <div class="ci__info">
           <p class="ci__name">${product.name}</p>
           <p class="ci__meta">Розмір: ${sizeLabel(item.size)} · Колір: ${color ? color.label : '—'}</p>

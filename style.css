@@ -219,15 +219,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 .hero__media { position: relative; display: grid; grid-template-columns: 1.4fr 1fr; gap: 16px; }
 .hero__ph {
   background: var(--ph);
-  display: grid;
-  place-items: center;
-  color: #b3aca3;
-  font-size: .78rem;
-  letter-spacing: .16em;
-  text-align: center;
   border-radius: var(--radius);
+  width: 100%;
+  object-fit: cover;
 }
-.hero__ph--1 { aspect-ratio: 3/4; }
+.hero__ph--1 { aspect-ratio: 3/4; height: auto; }
 .hero__ph--2 { aspect-ratio: 3/4; align-self: end; height: 72%; }
 .hero__sale {
   position: absolute;
@@ -267,13 +263,10 @@ ul { margin: 0; padding: 0; list-style: none; }
 .ph {
   background: var(--ph);
   border-radius: var(--radius);
-  display: grid;
-  place-items: center;
-  color: #b3aca3;
-  font-size: .78rem;
-  letter-spacing: .16em;
+  width: 100%;
+  object-fit: cover;
 }
-.ph--tall { aspect-ratio: 4/5; }
+.ph--tall { aspect-ratio: 4/5; height: auto; }
 
 /* ---------------- КАТАЛОГ ---------------- */
 .catalog__layout {
@@ -419,18 +412,16 @@ ul { margin: 0; padding: 0; list-style: none; }
   cursor: pointer;
   margin-bottom: 16px;
 }
-/* дві «заглушки» — друга проявляється при наведенні */
+/* два фото — друге проявляється при наведенні */
 .card__ph {
   position: absolute;
   inset: 0;
-  display: grid;
-  place-items: center;
-  font-size: .74rem;
-  letter-spacing: .16em;
-  color: #b3aca3;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   transition: opacity .4s, transform .5s;
 }
-.card__ph--back { background: #e6e1da; opacity: 0; }
+.card__ph--back { opacity: 0; }
 .card:hover .card__ph--front { opacity: 0; transform: scale(1.06); }
 .card:hover .card__ph--back { opacity: 1; transform: scale(1.06); }
 
@@ -624,15 +615,13 @@ ul { margin: 0; padding: 0; list-style: none; }
 .ci { display: flex; gap: 14px; padding: 20px 0; border-bottom: 1px solid var(--line); }
 .ci__ph {
   width: 74px;
+  height: auto;
   flex-shrink: 0;
+  align-self: flex-start;   /* інакше img розтягнеться на всю висоту рядка */
   aspect-ratio: 3/4;
+  object-fit: cover;
   background: var(--ph);
   border-radius: var(--radius);
-  display: grid;
-  place-items: center;
-  font-size: .58rem;
-  letter-spacing: .1em;
-  color: #b3aca3;
 }
 .ci__info { flex: 1; min-width: 0; }
 .ci__name { font-size: .93rem; font-weight: 500; margin: 0 0 4px; }
@@ -703,12 +692,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 .quick__media {
   aspect-ratio: 3/4;
   background: var(--ph);
-  display: grid;
-  place-items: center;
-  color: #b3aca3;
-  letter-spacing: .18em;
-  font-size: .8rem;
+  overflow: hidden;
 }
+.quick__media img { width: 100%; height: 100%; object-fit: cover; }
 .quick__info { padding: 44px 40px; }
 .quick__cat { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
 .quick__name { font-size: 1.6rem; margin: 8px 0 14px; }

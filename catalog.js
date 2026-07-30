@@ -109,8 +109,10 @@ function cardTemplate(product) {
     <article class="card" data-id="${product.id}">
       <div class="card__media" data-quick="${product.id}">
         ${badge}
-        <div class="card__ph card__ph--front">ФОТО ТОВАРУ</div>
-        <div class="card__ph card__ph--back">ФОТО ЗЗАДУ</div>
+        <img class="card__ph card__ph--front" src="${product.images[0]}"
+             alt="${product.name}" loading="lazy" width="600" height="800">
+        <img class="card__ph card__ph--back" src="${product.images[1]}"
+             alt="${product.name} — інший ракурс" loading="lazy" width="600" height="800">
         <button type="button" class="card__quick">Швидкий перегляд</button>
       </div>
       <span class="card__cat">${CATEGORY_LABELS[product.category]}</span>
@@ -221,7 +223,9 @@ function openQuickView(id) {
   const oldPrice = product.oldPrice ? `<s>${formatPrice(product.oldPrice)}</s>` : '';
 
   document.getElementById('quickContent').innerHTML = `
-    <div class="quick__media">ФОТО ТОВАРУ</div>
+    <div class="quick__media">
+      <img src="${product.images[0]}" alt="${product.name}" width="600" height="800">
+    </div>
     <div class="quick__info">
       <span class="quick__cat">${CATEGORY_LABELS[product.category]}</span>
       <h3 class="quick__name">${product.name}</h3>

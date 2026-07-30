@@ -5,6 +5,8 @@
    з масиву PRODUCTS і змініть поля:
 
    id          — унікальний числовий ідентифікатор
+   images      — [основне фото, фото при наведенні] з папки images/
+                 (якщо файлу немає, картка покаже сірий фон-заглушку)
    name        — назва товару (українською)
    price       — ціна в гривнях (число)
    oldPrice    — стара ціна (число) або null, якщо знижки немає
@@ -41,6 +43,7 @@ const CATEGORY_LABELS = {
 const PRODUCTS = [
   {
     id: 1,
+    images: ['images/p1-1.jpg', 'images/p1-2.jpg'],
     name: 'Футболка oversize «Basic»',
     price: 890,
     oldPrice: 1100,
@@ -54,6 +57,7 @@ const PRODUCTS = [
   },
   {
     id: 2,
+    images: ['images/p2-1.jpg', 'images/p2-2.jpg'],
     name: 'Футболка з кишенею «Pocket»',
     price: 790,
     oldPrice: null,
@@ -67,6 +71,7 @@ const PRODUCTS = [
   },
   {
     id: 3,
+    images: ['images/p3-1.jpg', 'images/p3-2.jpg'],
     name: 'Футболка «Long Sleeve»',
     price: 1050,
     oldPrice: null,
@@ -80,6 +85,7 @@ const PRODUCTS = [
   },
   {
     id: 4,
+    images: ['images/p4-1.jpg', 'images/p4-2.jpg'],
     name: 'Светр з мериносу «Wool»',
     price: 3200,
     oldPrice: 3900,
@@ -93,6 +99,7 @@ const PRODUCTS = [
   },
   {
     id: 5,
+    images: ['images/p5-1.jpg', 'images/p5-2.jpg'],
     name: 'Светр в\'язаний «Cable»',
     price: 2450,
     oldPrice: null,
@@ -106,6 +113,7 @@ const PRODUCTS = [
   },
   {
     id: 6,
+    images: ['images/p6-1.jpg', 'images/p6-2.jpg'],
     name: 'Кардиган «Soft»',
     price: 2890,
     oldPrice: null,
@@ -119,6 +127,7 @@ const PRODUCTS = [
   },
   {
     id: 7,
+    images: ['images/p7-1.jpg', 'images/p7-2.jpg'],
     name: 'Штани карго «Utility»',
     price: 1990,
     oldPrice: 2400,
@@ -132,6 +141,7 @@ const PRODUCTS = [
   },
   {
     id: 8,
+    images: ['images/p8-1.jpg', 'images/p8-2.jpg'],
     name: 'Штани класичні «Tailored»',
     price: 2350,
     oldPrice: null,
@@ -145,6 +155,7 @@ const PRODUCTS = [
   },
   {
     id: 9,
+    images: ['images/p9-1.jpg', 'images/p9-2.jpg'],
     name: 'Джогери «Comfort»',
     price: 1450,
     oldPrice: null,
@@ -158,6 +169,7 @@ const PRODUCTS = [
   },
   {
     id: 10,
+    images: ['images/p10-1.jpg', 'images/p10-2.jpg'],
     name: 'Шкіряний ремінь «Classic»',
     price: 990,
     oldPrice: null,
@@ -171,6 +183,7 @@ const PRODUCTS = [
   },
   {
     id: 11,
+    images: ['images/p11-1.jpg', 'images/p11-2.jpg'],
     name: 'Шапка-біні «Merino»',
     price: 690,
     oldPrice: 850,
@@ -184,6 +197,7 @@ const PRODUCTS = [
   },
   {
     id: 12,
+    images: ['images/p12-1.jpg', 'images/p12-2.jpg'],
     name: 'Шкіряна сумка «Daily»',
     price: 3450,
     oldPrice: null,
@@ -197,6 +211,7 @@ const PRODUCTS = [
   },
   {
     id: 13,
+    images: ['images/p13-1.jpg', 'images/p13-2.jpg'],
     name: 'Шарф «Wool Wrap»',
     price: 1190,
     oldPrice: null,
@@ -210,6 +225,7 @@ const PRODUCTS = [
   },
   {
     id: 14,
+    images: ['images/p14-1.jpg', 'images/p14-2.jpg'],
     name: 'Худі «Heavy»',
     price: 2150,
     oldPrice: 2600,
@@ -223,6 +239,7 @@ const PRODUCTS = [
   },
   {
     id: 15,
+    images: ['images/p15-1.jpg', 'images/p15-2.jpg'],
     name: 'Футболка «Stripe»',
     price: 950,
     oldPrice: null,
@@ -236,6 +253,7 @@ const PRODUCTS = [
   },
   {
     id: 16,
+    images: ['images/p16-1.jpg', 'images/p16-2.jpg'],
     name: 'Штани льняні «Summer»',
     price: 1790,
     oldPrice: null,
